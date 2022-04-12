@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+<head>
+    
+    <title>Le Bike</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   
+
+</head>
+<body class="body1">
+<div class="headr">
+        <div class="title">Le bike</div>
+        <div class="account"><span id="username"></span></div>
+        <div class="account"><i class="material-icons" onclick="window.location.href = '/login'">account_circle</i> </div>
+    </div>
+
+</div>
+<div class="bodycontainer1">
+    <div class="navegacao">
+        <div class="Nav_item"  onclick="window.location.href = '/'">Inicio</div>
+        <div class="Nav_selected">Reservar</div>
+        <div class="Nav_item" onclick="window.location.href = '/minhasreservas'">As minhas Reservas</div>
+        <div class="Nav_item" onclick="window.location.href = '/Informacao'">Informações</div>
+    </div>
+
+    <article>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        
+					<nav class="form-steps">
+						<div class="form-steps__item form-steps__item--active">
+							<div class="form-steps__item-content">
+								<span class="form-steps__item-icon">1</span>
+								<span class="form-steps__item-text">Seleciona a bicicleta</span>
+							</div>
+
+						</div>
+						<div class="form-steps__item">
+							<div class="form-steps__item-content">
+								<span class="form-steps__item-icon">2</span>
+								<span class="form-steps__item-line"></span>
+								<span class="form-steps__item-text">Escolhe a data</span>
+							</div>
+						</div>
+						<div class="form-steps__item">
+							<div class="form-steps__item-content">
+								<span class="form-steps__item-icon">3</span>
+								<span class="form-steps__item-line"></span>
+								<span class="form-steps__item-text">Pagamento</span>
+							</div>
+						</div>
+						<div class="form-steps__item">
+							<div class="form-steps__item-content">
+								<span class="form-steps__item-icon">4</span>
+								<span class="form-steps__item-line"></span>
+								<span class="form-steps__item-text">Completo!</span>
+							</div>
+						</div>
+					</nav>
+
+        <h1>Seleciona a tua bicicleta</h1>
+        <form action="/Agendar" method="post">
+            <div class="cards">
+               
+                    <div class="card">
+                        <h2 class="card-title">Montanha</h2>
+                        <img src="https://trek.scene7.com/is/image/TrekBicycleProducts/TK21_WEB_B300_MTB_Fuel_EX_9x11_White?" alt="">
+                        <button name ="modelo" value="Montanha" type="submit" class="hidden">
+                        <p class="card-desc" >Esta bicicleta é ideal para transpor percursos com diversas irregularidades e obstáculos.<br><br>
+                            *Equipamento de segurança incluido
+                        </p>
+                        </button>   
+                    </div>
+                    <div class="card">
+                        <h2 class="card-title">Estrada</h2>
+                        <img src="https://i2.wp.com/bttlobo.com/wp-content/uploads/2020/04/Canyon-EnduraceON-AL-13.jpg?ssl=1" alt="">
+                        <button name ="modelo" value="Estrada" type="submit" class="hidden">
+                        <p class="card-desc">Esta bicicleta é ideal para percursos em estrada.<br><br>
+                            *Equipamento de segurança incluido</p>
+                     </button>
+                    </div>
+                    <div class="card">
+                        <h2 class="card-title">Elétrica</h2>
+                        <img src="https://trek.scene7.com/is/image/TrekBicycleProducts/TK21_WEB_B300_MTB_Powerfly_Euipped_9x11_Gray?" alt="">
+                        <button name ="modelo"  value="Elétrica" type="submit" class="hidden">
+                        <p class="card-desc">Esta bicicleta elétrica, através de sensores, sustenta o esforço do ciclista somente quando este pedala.<br><br>
+                            *Equipamento de segurança incluido</p>
+                    </button>
+                    </div>
+                
+            </div>
+        </form>
+    </article>
+</div>
+
+<footer class="footer1">
+    <div class="footerC">
+        <div class="footerI"><i class="material-icons">email</i><p>lebikeer@gmail.com</p></div>
+        <div class="footerI"><i class="material-icons">phone</i><p>291000000</p></div>
+        <div class="footerI"><i class="material-icons">place</i><p>Caminho da Penteada, 9020-105 Funchal</p></div>
+    </div>
+</footer>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    const usernameSpan = document.getElementById("username");
+    
+    socket.on('connect', () => {
+
+        socket.emit('whoami', (username) => {
+            usernameSpan.innerText = username;
+            document.getElementById("username").setAttribute("value",username);
+        });
+
+
+    });
+
+
+</script>
+</body>
+</html>
+

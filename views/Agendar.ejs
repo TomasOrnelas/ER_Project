@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head') %>
+<head>
+  <title>Le Bike</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons "rel="stylesheet">
+
+
+  <link rel="stylesheet", type="text/css", href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+  <link rel= "stylesheet", type="text/css", href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css"/>
+  <link rel="stylesheet", type="text/css", href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.8/css/bootstrap-switch.css"/>
+  <link rel= "stylesheet", type="text/css", href="https://davidstutz.github.io/bootstrap-multiselect/css/bootstrap-multiselect.css"/>
+  <script>{type: "text/javascript",src= "//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"}</script>
+  <script>{type: "text/javascript",src= "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0/js/bootstrap.min.js"}</script>
+  <script>{type: "text/javascript",src= "//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js"}</script>
+  <script>{type: "text/javascript",src= "//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.8/js/bootstrap-switch.min.js"}</script>
+  <script>{type: "text/javascript",src= "https://davidstutz.github.io/bootstrap-multiselect/js/bootstrap-multiselect.js"}</script>
+
+</head>
+<body class="body1">
+  <div class="headr">
+    <div class="title">Le bike</div>
+    <div class="account"><span id="username"></span></div>
+    <div class="account"><i class="material-icons" onclick="window.location.href = '/login'">account_circle</i> </div>
+</div>
+
+<div class="bodycontainer1">
+  <div class="navegacao">
+    <div class="Nav_item"  onclick="window.location.href = '/'">Inicio</div>
+    <div class="Nav_item"onclick="window.location.href = '/Reservas'">Reservar</div>
+    <div class="Nav_item" onclick="window.location.href = '/minhasreservas'">As minhas Reservas</div>
+    <div class="Nav_item"onclick="window.location.href = '/informacao'">Informações</div>
+  </div>
+
+  <article>
+    <nav class="form-steps">
+      <div class="form-steps__item form-steps__item--completed">
+        <div class="form-steps__item-content">
+          <span class="form-steps__item-icon">1</span>
+          <span class="form-steps__item-text">Esolhe a bicicleta</span>
+        </div>
+
+      </div>
+      <div class="form-steps__item form-steps__item--active">
+        <div class="form-steps__item-content">
+          <span class="form-steps__item-icon">2</span>
+          <span class="form-steps__item-line"></span>
+          <span class="form-steps__item-text">Escolhe a data</span>
+        </div>
+      </div>
+      <div class="form-steps__item">
+        <div class="form-steps__item-content">
+          <span class="form-steps__item-icon">3</span>
+          <span class="form-steps__item-line"></span>
+          <span class="form-steps__item-text">Pagamento</span>
+        </div>
+      </div>
+      <div class="form-steps__item">
+        <div class="form-steps__item-content">
+          <span class="form-steps__item-icon">4</span>
+          <span class="form-steps__item-line"></span>
+          <span class="form-steps__item-text">Completo!</span>
+        </div>
+      </div>
+    </nav>
+    
+      <div class="container">
+        <div class="panel panel-primary dialog-panel">
+          <div class="panel-heading">
+            <h5>Reservas de bicicletas</h5>
+          </div>
+          <div class="panel-body">
+            <form class="form-horizontal" action="/pagar" method="post">
+              <div class="form-group">
+                <label class="control-label col-md-2 col-md-offset-2"></label>
+               
+              </div>
+              
+              <div class="form-group">
+                <label class="control-label col-md-2 col-md-offset-2"> Inicio de reserva</label>
+                <div class="col-md-8">
+                  <div class="col-md-3">
+                    <div class="form-group internal input-group">
+                      <input class="form-control datepicker" name="inicio" type="date" required/>
+                        
+                    </div>
+                  </div>
+                  <label class="control-label col-md-2"></label>
+                  <div class="col-md-3">
+                    <div class="form-group internal input-group">
+                      <input class="form-control datepicker" name="hora" type="time" required/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-2 col-md-offset-2">Duração de reserva</label>
+                <div class="col-md-8">
+                  <div class="col-md-3">
+                    <div class="form-group internal">
+                      <select  name="duracao" class="form-control" required>
+                        <option value="1">1 Hora</option>
+                        <option value="2">2 Horas</option>
+                        <option value="3">3 Horas</option>
+                        <option value="5">5 Horas </option>
+                        <option value="24">1 Dia</option>
+                        <option value="48">2 Dias</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-9">
+                    <div class="form-group internal">
+                      <label class="control-label col-md-3"></label>
+                      <div class="make-switch">
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+             
+              <div class="form-group">
+                <div class="col-md-offset-10 col-md-3">
+                  <button class="btn-lg btn-primary" type="submit">Confirmar</button>
+                </div>
+                
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+     </div>
+
+          
+    </div>
+  </div>
+</article>
+</div>
+<footer class="footer1">
+  <div class="footerC">
+    <div class="footerI"><i class="material-icons">email</i><p>lebikeer@gmail.com</p></div>
+    <div class="footerI"><i class="material-icons">phone</i><p>291000000</p></div>
+    <div class="footerI"><i class="material-icons">place</i><p>Caminho da Penteada, 9020-105 Funchal</p></div>
+  </div>
+</footer>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io();
+    const usernameSpan = document.getElementById("username");
+    
+    socket.on('connect', () => {
+
+        socket.emit('whoami', (username) => {
+            usernameSpan.innerText = username;
+            document.getElementById("username").setAttribute("value",username);
+        });
+
+
+    });
+
+
+</script>
+</body>
+</html>

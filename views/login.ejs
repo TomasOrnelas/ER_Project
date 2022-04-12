@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+<head>
+    <title>Le Bike</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet", type="text/css", href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel= "stylesheet", type="text/css", href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/css/datepicker.min.css"/>
+    <link rel="stylesheet", type="text/css", href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/1.8/css/bootstrap-switch.css"/>
+    <link rel= "stylesheet", type="text/css", href="https://davidstutz.github.io/bootstrap-multiselect/css/bootstrap-multiselect.css"/>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <div class="headr">
+        <div class="title">Le bike</div>
+        <div class="account"><span id="username"></span></div>
+        <div class="account"><i class="material-icons" onclick="window.location.href = '/login'">account_circle</i> </div>
+    </div>
+
+<div class="bodycontainer1L">
+    <div class="navegacao">
+        <div class="Nav_item"  onclick="window.location.href = '/'">Inicio</div>
+        <div class="Nav_item"onclick="window.location.href = '/Reservas'">Reservar</div>
+        <div class="Nav_item" onclick="window.location.href = '/minhasreservas'">As minhas Reservas</div>
+        <div class="Nav_item" onclick="window.location.href = '/Informacao'">Informações</div>
+    </div>
+    <div class="formC">
+    <div class="LoginC">
+
+        <form class="formL" action="/login" method="post">
+            <p class="p2">Por favor inicie sessão</p>
+            <br>
+            <label>Username:</label>
+            <input class="IN" type="text" name="username" required>
+            <br/>
+            <label>Password:</label>
+            <input class="IN" type="password" name="password" required>
+            <br/>
+            <input class="IN2" type="submit" value="Submit">
+            <p>Ainda não tem conta? <a href="/register">Registe-se</a>  </p>
+        </form>
+    </div>
+    </div>
+</div>
+
+<footer class="footer1">
+    <div class="footerC">
+        <div class="footerI"><i class="material-icons">email</i><p>lebikeer@gmail.com</p></div>
+        <div class="footerI"><i class="material-icons">phone</i><p>291000000</p></div>
+        <div class="footerI"><i class="material-icons">place</i><p>Caminho da Penteada, 9020-105 Funchal</p></div>
+    </div>
+</footer>
+<script>
+    
+</script>
+
+</body>
+</html>
